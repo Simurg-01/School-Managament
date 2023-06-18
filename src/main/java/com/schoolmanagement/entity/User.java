@@ -38,10 +38,8 @@ public  abstract class User {
 
     @Column(unique = true)
     private String phoneNumber;
-    @Enumerated(EnumType.STRING)
 
     private Gender gender;
-    @Enumerated(EnumType.STRING)
 
     private UserRole userRole;
 }

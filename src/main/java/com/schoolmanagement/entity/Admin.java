@@ -19,6 +19,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class Admin extends User {
 
-    private boolean built_in;
+    public boolean built_in;
 
 }

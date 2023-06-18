@@ -20,6 +20,7 @@ import java.time.LocalDate;
 public class Admin extends User {
 
     public boolean built_in;
+    //Oguzhan deneme
 
 
 }

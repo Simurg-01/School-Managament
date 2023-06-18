@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
-
+//Oguzhan
 import javax.persistence.*;
 import java.time.LocalDate;
 

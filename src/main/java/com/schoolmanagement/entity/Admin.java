@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
-
+//Oguzhan
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -20,5 +20,7 @@ import java.time.LocalDate;
 public class Admin extends User {
 
     public boolean built_in;
+    //Oguzhan deneme
+
 
 }

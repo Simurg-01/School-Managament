@@ -17,6 +17,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class Dean extends User {
 
+    //deneme 123
 
 
 }

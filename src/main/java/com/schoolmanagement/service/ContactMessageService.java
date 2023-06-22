@@ -17,7 +17,7 @@ public class ContactMessageService {
 
 
 //    public List<ContactMessage> getAllContacts() {
-//        return contactMessageRepository.findAll();
+
 //    }
 
 public List<ContactMessageDTO> getAllContacts() {

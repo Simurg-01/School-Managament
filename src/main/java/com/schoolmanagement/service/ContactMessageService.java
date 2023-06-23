@@ -16,7 +16,7 @@ public class ContactMessageService {
     private ContactMessageRepository contactMessageRepository;
 
 
-//    public List<ContactMessage> getAllContacts() {
+
 //        return contactMessageRepository.findAll();
 //    }
 

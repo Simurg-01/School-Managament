@@ -61,7 +61,7 @@ public class ContactMessageController {
      @RequestParam("direction") Sort.Direction direction, @PathVariable("email") String email)
     {
         Pageable pageable = PageRequest.of(page, size, Sort.by(direction, prop));
-        Page<ContactMessageDTO> contactMessagesByEmail = ContactMessageService.getContactMessageByEmailByPages(pageable, email);
+        Page<ContactMessageDTO> contactMessagesByEmail = contactMessageService.getContactMessageByEmailByPages(pageable, email);
         return new ResponseEntity<>(contactMessagesByEmail, HttpStatus.OK);
     }
 

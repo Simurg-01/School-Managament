@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class ContactMessageService {
     @Autowired
-    private static ContactMessageRepository contactMessageRepository;
+    private ContactMessageRepository contactMessageRepository;
 
 
 
@@ -46,8 +46,8 @@ public List<ContactMessageDTO> getAllContacts() {
 
 
 
-    public static Page<ContactMessageDTO> getContactMessageByEmailByPages(Pageable pageable, String email) {
-        Page<ContactMessage> contactMessages= contactMessageRepository. findAllByEmail(pageable,email);
+    public Page<ContactMessageDTO> getContactMessageByEmailByPages(Pageable pageable, String email) {
+        Page<ContactMessage> contactMessages= contactMessageRepository.findAllByEmail(pageable,email);
 
         return contactMessages.map(ContactMessageDTO::new);
 

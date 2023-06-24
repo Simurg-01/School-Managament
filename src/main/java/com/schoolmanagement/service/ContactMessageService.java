@@ -5,6 +5,8 @@ import com.schoolmanagement.entity.ContactMessage;
 import com.schoolmanagement.exception.ConflictException;
 import com.schoolmanagement.repository.ContactMessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,7 +15,8 @@ import java.util.List;
 @Service
 public class ContactMessageService {
     @Autowired
-    private ContactMessageRepository contactMessageRepository;
+    private static ContactMessageRepository contactMessageRepository;
+
 
 
 
@@ -31,8 +34,6 @@ public List<ContactMessageDTO> getAllContacts() {
 }
 
 
-
-
     public void saveContact(ContactMessageDTO contactMessageDTO) {
 
         if(contactMessageRepository.existsByEmail(contactMessageDTO.getEmail())){
@@ -41,4 +42,19 @@ public List<ContactMessageDTO> getAllContacts() {
         ContactMessage contactMessage=new ContactMessage(contactMessageDTO);
         contactMessageRepository.save(contactMessage);
     }
+
+
+
+
+    public static Page<ContactMessageDTO> getContactMessageByEmailByPages(Pageable pageable, String email) {
+        Page<ContactMessage> contactMessages= contactMessageRepository. findAllByEmail(pageable,email);
+
+        return contactMessages.map(ContactMessageDTO::new);
+
+    }
+
+
+
+
 }
+

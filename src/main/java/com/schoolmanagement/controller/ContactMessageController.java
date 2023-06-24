@@ -55,14 +55,29 @@ public class ContactMessageController {
     //email ile arama -pageable
     @GetMapping("/page/{email}")
     public ResponseEntity<Page<ContactMessageDTO>> getContactMessageByEmailByPage
-    (@RequestParam(value = "page", required = false, defaultValue = "0") int page,
+    (@PathVariable("email") String email,
+     @RequestParam(value = "page", required = false, defaultValue = "0") int page,
      @RequestParam(value = "size", required = false, defaultValue = "2") int size,
-     @RequestParam("sort") String prop,
-     @RequestParam("direction") Sort.Direction direction, @PathVariable("email") String email)
+     @RequestParam(value = "sort", required = false) String prop,
+     @RequestParam(value="direction", required = false) Sort.Direction direction)
     {
         Pageable pageable = PageRequest.of(page, size, Sort.by(direction, prop));
         Page<ContactMessageDTO> contactMessagesByEmail = contactMessageService.getContactMessageByEmailByPages(pageable, email);
         return new ResponseEntity<>(contactMessagesByEmail, HttpStatus.OK);
+    }
+
+    //email ile arama -pageable
+    @GetMapping("/page")
+    public ResponseEntity<Page<ContactMessageDTO>> getContactMessageBySubjectByPage
+    (@RequestParam(name="subject") String subject,
+     @RequestParam(value = "page", required = false, defaultValue = "0") int page,
+     @RequestParam(value = "size", required = false, defaultValue = "2") int size,
+     @RequestParam(value = "sort", required = false) String prop,
+     @RequestParam(value="direction", required = false) Sort.Direction direction)
+    {
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction, prop));
+        Page<ContactMessageDTO> contactMessagesBySubject = contactMessageService.getContactMessageBySubjectByPages(pageable, subject);
+        return new ResponseEntity<>(contactMessagesBySubject, HttpStatus.OK);
     }
 
 

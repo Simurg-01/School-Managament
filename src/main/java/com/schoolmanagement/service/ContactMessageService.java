@@ -22,7 +22,7 @@ public class ContactMessageService {
 
 //        return contactMessageRepository.findAll();
 //    }
-
+//stream api
 public List<ContactMessageDTO> getAllContacts() {
     List<ContactMessage> getAllContact= contactMessageRepository.findAll();
     List<ContactMessageDTO> getAllContactDTO= new ArrayList<>();
@@ -48,6 +48,13 @@ public List<ContactMessageDTO> getAllContacts() {
 
     public Page<ContactMessageDTO> getContactMessageByEmailByPages(Pageable pageable, String email) {
         Page<ContactMessage> contactMessages= contactMessageRepository.findAllByEmail(pageable,email);
+
+        return contactMessages.map(ContactMessageDTO::new);
+
+    }
+
+    public Page<ContactMessageDTO> getContactMessageBySubjectByPages(Pageable pageable, String subject) {
+        Page<ContactMessage> contactMessages= contactMessageRepository.findAllBySubject(pageable,subject);
 
         return contactMessages.map(ContactMessageDTO::new);
 

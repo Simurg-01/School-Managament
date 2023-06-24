@@ -1,0 +1,16 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message:  "Congratulations! Welcome to your first issue in this organization! We're excited that you've opened your first issue.Please feel free to provide a clear description of the issue or the change you'd like to make. We're here to support you throughout the process.If you need any further assistance or have additional questions, please don't hesitate to ask. Keep up the great work!"
+        pr-message: " Great job!You've successfully submitted your first pull request to your team. This is an important step in teamwork. Now, await feedback from your teammates and consider their suggestions.Stay in touch with your team and support each other. By collaborating, you can achieve better results.Wishing you continued success! "

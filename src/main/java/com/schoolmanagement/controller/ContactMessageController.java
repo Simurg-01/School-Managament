@@ -50,7 +50,7 @@ public class ContactMessageController {
         List<ContactMessageDTO> getAllContactDTO= contactMessageService.getAllContacts();
         return ResponseEntity.ok(getAllContactDTO);
     }
-
+  //  deneme
 
     //email ile arama -pageable
     @GetMapping("/page/{email}")
